@@ -1,12 +1,40 @@
  <?php
-  session_start();
+
+ session_start();
   if (isset($_SESSION['uname'])) {
     echo "
       <script>
       location.href='home.php'
       </script>
   ";
+ }
+
+  require "db/db-table-check-create.php";
+  $obj=new tableCheck();
+
+  // POST method
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['create'])) {
+     $tableNam = $_POST['create'];
+     $result=$obj->createTable();
+     if ($result==6) {
+        echo "<script> alert(' sucessfully created.');</script>";
+     }else{
+      echo "<script> alert(' sorry !!!!!.');</script>";
+     }
+    }
   }
+
+  // check db connection for first time.
+  $formAction="db/login.php";
+  $nouser=0;
+  $result_checkUserPresent=$obj->checkUserPresent();
+  if ($result_checkUserPresent=='no-user') {
+    $nouser=1;
+    $tableName='user';
+    $formAction='#';
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +45,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon"/>
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="assets/css/login.css">
 <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
 <body id="login-page">
@@ -28,6 +57,18 @@
     </div>
   </nav>
 <div id="main">
+  <?php 
+    if ($nouser==1){
+      echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+      <form action='index.php' method='POST' class='create-db-tb'>
+        <label> Database table is not defined; Create default database  </label>
+        <input type='submit' name='cancel' class='btn-secondary' value='cancel' data-bs-dismiss='alert' aria-label='Close'>
+        <button type='submit' name='create' class='btn-primary' value='create-table'> create </button>
+      </form>
+      <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+      </div>";
+    }
+  ?>
   
 <!--  ----------------  section ------------------ -->
 <section>
@@ -41,8 +82,8 @@
         <div  align="center">
       <strong><u>Sign in</u></strong>
     </div>
-    <img  class="profile-img" src="assets/img/user.png" alt="user">
-    <form class="myform" action="db/login.php" method="POST">
+    <img  class="profile-img" src="assets/img/avatar_2x.png" alt="user">
+    <form class="myform" action="<?php echo $formAction; ?>" method="POST">
         <input class="form-control" placeholder="Username" name="username" type="text" autofocus   required>
 
         <input class="form-control" placeholder="Password" name="password" type="password" value="" required>
@@ -66,6 +107,9 @@
   <p>Copyright © 2021 by ausadipasal</p>
 </footer>
 </div>
+
+<script type="text/javascript" src="assets/js/bootstrap.bundle.min.js" ></script>
+<script src="assets/js/jquery-3.6.0.js" ></script>
 
 </body>
 </html>
