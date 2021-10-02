@@ -1,0 +1,73 @@
+/* ------- */
+html,body{
+    height: 100%;
+    bottom: 0;
+}
+#main{
+    display: flex;
+    flex-direction: column;
+    min-height: 97%;
+}
+
+.flex-container {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.add{
+    float: right;
+    padding: 10px !important;
+    font-weight: bold !important;
+}
+.itemflex{  width: 50%;}
+.row-form{display: flex; margin-bottom: 1rem;}
+.row-form div:first-child{margin-right: 10px;}
+.date-field{width: 100%;}
+hr{height: 2px;}
+
+footer {
+    margin-top: auto;
+    padding: 3px;
+    background-color: #45a1ff;
+    color: #fff;
+    bottom: 0;
+    height: auto;
+}
+
+footer p{
+   padding-top: 10px 0px 10px 0px;
+   text-align: center;
+   margin-bottom: 0 !important;
+}
+datalist {
+    max-height: 150px;
+    overflow-y: auto;
+}
+datalist option{
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+    width: auto;
+}
+.show-datalist{ display: block;}
+/* ---------nav bar profile icon------ */
+.profile-img { width: 50px; height: 50px; border-radius: 50%;}
+.exp-stock{ display: flex;}
+.exp-stock form,
+.stock-btn-coll{margin-left: auto;}
+/* ---------inv stock-list ----------  */
+.stock_list td:last-child,
+.out_stock_list td:last-child{ color:  #f36344 ;font-weight: bold;}
+/* ---------inv expired_-list ----------  */
+.expired_list td:nth-child(5){color: red;font-weight: bold;}
+.btn{margin: 2px;}
+.inv-pag-info,.stock-pag-info{color: red; padding: 0 5px;width: 100%; font-weight: bold;text-align: center;}
+#deletePurchase{background-color: red;border: red;}
+#deletePurchase:hover{background-color: red;border: red;}
+#delConformModal .modal-body{display: flex;}
+#cancelDelete,#confDelete,.flex-container > button {width: 50%;height: 40px;}
+#confDelete,.deletePurchase,.deletePurchase:hover{background-color: #f44336;  border: #f44336;}
+.hide{display: none;}

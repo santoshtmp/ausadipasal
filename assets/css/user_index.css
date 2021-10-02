@@ -1,0 +1,107 @@
+  .hide{
+    display: none;
+  }
+  #addUser{
+    width:50%;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  #addUser form{
+    padding: 10px;
+    background-color: lightblue;
+    border-radius: 5px;
+  }
+
+  /* Full-width input fields */
+  #addUser .form-control{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  #addUser .input-password {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 0 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+
+  /* Add a background color when the inputs with (class form-control)get focus */ 
+  #addUser .form-control:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+  /* Set a style for all buttons */
+  .addUserBtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    margin-left: auto;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+  }
+
+  .addUserBtn:hover {
+    opacity:1;
+  }
+
+  .cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+    color: white;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    float: left;
+    width: 50%;
+  }
+
+  .signupbtn{
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    float: left;
+    width: 50%;
+  }
+
+  #addUser form i {
+    margin-left: -30px;
+    cursor: pointer;
+  }
+
+  .flex-container{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .user-info{
+    margin: 10px 10px auto 10px;
+    padding: 10px;
+    width: 50%;
+  }
+
+  .user-info div p{
+    color: darkblue;
+  }
+
+  .user-info div {
+    padding: 10px;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    text-align: center;
+}

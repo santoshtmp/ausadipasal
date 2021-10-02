@@ -1,0 +1,19 @@
+th, td {
+    border: 1px solid !important;
+    padding: 10px;
+    text-align: center;
+}
+
+table,
+.sales {
+    margin-top: 10px;
+    margin-left: 20%;
+}
+
+.calcel{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.btn-yellow{background-color: yellow;}
+.edit-sales-btn-clk{background-color: yellow; padding: 10px; text-align: center;}
+.sales-btn-clk{background-color: #3498db; padding: 10px; text-align: center;}

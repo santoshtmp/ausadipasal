@@ -1,0 +1,116 @@
+
+#login-page #main{
+    background-image: url("../img/shreeganesh.jpg");
+}
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 10px;
+    margin-top: 25px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.login-box{
+    width: 25%;
+    float: right;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 15px;
+}
+
+.form-control{
+    margin: 10px 0px 10px 0px;
+    padding-right: 10px !important;
+}
+
+.submitbtn{
+    background-color: #333eff;
+    color: white;
+    align-self: center;
+    margin: 10px 0px 10px 0px;
+    padding: 10px;
+    width: 100%;
+    height: auto;
+}
+/*---------------------------*/
+.welcome{
+    width: 70%;
+    float: left;
+    margin: 10px;
+    padding: 10px;
+    font-weight: bold;
+    color: #9badd5;
+    text-align: center;
+
+}
+
+/*-----------------------*/
+/*@media only screen and (max-width: 900px){*/
+@media(max-device-width: 900px){
+    .login-box{
+        width: 50%;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 20px;
+        padding: 15px;
+        float: none;
+        display: flex;
+        margin-left: 20%;
+    }
+    .login-center{
+        width: 100%;
+        font-size: 35px;
+    }
+    .profile-img {
+        width: 80px;
+        height: 80px;
+    }
+    .form-control {
+        font-size: 2rem !important;
+    }
+    .welcome{
+        width: 90%;
+        margin: 10px 50px 10px 50px;
+        padding: 10px;
+        font-weight: bold;
+        color: #9badd5;
+        text-align: center;
+        float: none;
+    }
+    .welcome h4{
+        font-size: 50px;
+    }
+    .check-box{
+        height: 30px;
+        width: 30px;
+    }
+}
+@media(max-width: 900px){
+    .login-box{
+        width: 50%;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 20px;
+        padding: 15px;
+        float: none;
+        display: flex;
+        margin-left: 20%;
+    }
+    .login-center{
+        width: 100%;
+    }
+    .welcome{
+        width: 90%;
+        margin: 10px 50px 10px 50px;
+        padding: 10px;
+        font-weight: bold;
+        color: #9badd5;
+        text-align: center;
+        float: none;
+    }
+}
