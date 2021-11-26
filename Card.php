@@ -246,7 +246,7 @@ $obj_itemName=$obj2->getInvItemName();
     
     <!--  ----------------  footer ------------------ -->
     <footer>
-      <p>Copyright © 2021 by ausadipasal</p>
+      <p>Copyright ©  <?php echo date("Y"); ?> by ausadipasal</p>
     </footer>
   </div>
   <!--------------------------------- js link ------------------------->
