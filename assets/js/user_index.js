@@ -21,3 +21,7 @@ function showPassword() {
 function changePass(){
 	$('#changePassWordMod').modal('toggle');
 }
+
+function changeUname(){
+	$('#changeUnameMod').modal('toggle');
+}

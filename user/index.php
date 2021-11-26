@@ -24,8 +24,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }else {
       echo "<script> alert(' !!!!!! Fail to Created New User ......');</script>";
     }
-  }else{
-    $password = $_POST["password"];
+  }elseif (isset($_POST["new_uname"]) ){
+    $new_uname = $_POST["new_uname"];
+    $arr=array(
+      "username"=>$new_uname,
+    );
+    $result=$obj->updateData('user',$arr,'username',$_SESSION['uname']);
+    if ($result) {
+      $_SESSION['uname']=$new_uname;
+      echo "<script> alert('Username Changed Sucessfully');</script>";
+    }else {
+      echo "<script> alert(' !!!!!! Fail to Changed Username ......');</script>";
+    }
+  }elseif (isset($_POST["new_password"]) ){
+    $password = $_POST["new_password"];
     $hash_password = password_hash($password, PASSWORD_DEFAULT);
     $arr=array(
       "password"=>$hash_password,
@@ -96,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <div class="modal-body">
            <form action="index.php" method="POST" autocomplete="off">
              <div>
-              <input type="password" placeholder="Enter Password" name="password" id="passInput" class="form-control" autocomplete="off" required>
+              <input type="password" placeholder="Enter New Password" name="new_password" id="passInput" class="form-control" autocomplete="off" required>
               <input type="checkbox" onclick="showPassword()" style="margin-bottom: 22px;margin-left: 30px;"> show password
             </div>
             <div class="flex-container">
@@ -111,15 +123,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       </div>
     </div>
   </div>
+  <!-- ----------- Change username modal ----------------------- -->
+    <div class="modal fade" id="changeUnameMod" tabindex="-1" aria-labelledby="changeUnameMod" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" style="margin-top: 45%;">
+          <div class="modal-header">
+            <h5 class="modal-title" id="changeUnameMod" >Change Username</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+           <form action="index.php" method="POST" autocomplete="off">
+             <div>
+              <input type="text" placeholder="Enter New Username" name="new_uname" class="form-control"  required>
+            </div>
+            <div class="flex-container">
+              <button  type="button" class='btn btn-secondary' data-bs-dismiss="modal" aria-label="Close">Cancel </button> 
+              <button  type="submit" class='btn btn-primary' >Change Username </button> 
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+
+        </div>
+      </div>
+    </div>
+  </div>
   <!--  ----------------  section ------------------ -->
   <section>
     <div class="container">
       <div class="flex-container">
         <div class="itemflex">
-          <h4> username : <?php echo $_SESSION['uname']; ?> </h4>
+          <h4> User Details </h4>
+         <!--  <h4> username : <?php echo $_SESSION['uname']; ?> </h4> -->
         </div>
         <div class="itemflex" style="display: flex;">
-          <button onclick="addUser()" class="addUserBtn">Add User</button>
+          <!-- <button onclick="addUser()" class="addUserBtn">Add User</button> -->
         </div>
       </div>
       <hr>
@@ -134,11 +172,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               echo "
               <p> User Name : ".$userInfo['username']."</p>
               <p> Email : ".$userInfo['email']."</p>
-              <p> Login Time : ".$last_login."</p>
+              <p> Last Login Time : ".$last_login."</p>
               ";
             }
             ?>
-            <p><button id='changePass' class="addUserBtn" onclick="changePass()" >Change Password</button></p>
+            <p><button id='changeUname' class="addUserBtn" onclick="changeUname()" >Change Username</button> <span></span>
+              <button id='changePass' class="addUserBtn" onclick="changePass()" >Change Password</button></p>
           </div>
         </div>
 
@@ -170,13 +209,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </fieldset>
           </form>
         </div>
+
       </div>
 
     </div>
   </section>
   <!--  ----------------  footer ------------------ -->
   <footer>
-    <p>Copyright © 2021 by ausadipasal</p>
+    <p>Copyright © <?php echo date("Y"); ?>  by ausadipasal</p>
   </footer>
 </div>
 <!--------------------------------- js link ------------------------->

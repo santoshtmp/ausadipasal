@@ -93,7 +93,7 @@ class tableCheck extends database{
 		}
 
 		
-    	$sql='INSERT INTO user(username,password,email,last_login,count_login) values("santosh","$2y$10$dV4Pmit4rcMNxnFG9yIW9umsNRs1MUMHdt3ms7w22cWZFUs6lnTHS","santosh@g.com","0",0)';
+    	$sql='INSERT INTO user(username,password,email,last_login,count_login) values("santosh","$2y$10$dV4Pmit4rcMNxnFG9yIW9umsNRs1MUMHdt3ms7w22cWZFUs6lnTHS","santoshtm@yopmail.com","2021-11-26 13:45:34.000000","1")';
         $result=$this->connect()->query($sql);
     	if ($result) {
       		$table_insert=1;
